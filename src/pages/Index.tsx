@@ -3,13 +3,117 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <h1 className="text-xl font-bold text-gray-900">
+                <span className="text-primary">УПРАВЛЯЙ</span> / <span className="text-secondary">ВДОХНОВЛЯЙ</span>
+              </h1>
+            </div>
+            
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              <button onClick={() => scrollToSection('hero')} className="text-gray-700 hover:text-primary transition-colors">
+                Главная
+              </button>
+              <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-primary transition-colors">
+                О конференции
+              </button>
+              <button onClick={() => scrollToSection('schedule')} className="text-gray-700 hover:text-primary transition-colors">
+                Программа
+              </button>
+              <button onClick={() => scrollToSection('speakers')} className="text-gray-700 hover:text-primary transition-colors">
+                Спикеры
+              </button>
+              <button onClick={() => scrollToSection('registration')} className="text-gray-700 hover:text-primary transition-colors">
+                Регистрация
+              </button>
+              <button onClick={() => scrollToSection('contacts')} className="text-gray-700 hover:text-primary transition-colors">
+                Контакты
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Icon name="Menu" size={24} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-80">
+                <div className="flex flex-col space-y-6 mt-8">
+                  <button 
+                    onClick={() => scrollToSection('hero')} 
+                    className="text-left text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    Главная
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('about')} 
+                    className="text-left text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    О конференции
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('schedule')} 
+                    className="text-left text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    Программа
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('speakers')} 
+                    className="text-left text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    Спикеры
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('registration')} 
+                    className="text-left text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    Регистрация
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contacts')} 
+                    className="text-left text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    Контакты
+                  </button>
+                  <div className="pt-4 border-t">
+                    <Button 
+                      onClick={() => scrollToSection('registration')} 
+                      className="w-full bg-primary hover:bg-primary/90 text-white"
+                    >
+                      Зарегистрироваться
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-orange-50 to-green-50 py-20">
+      <section id="hero" className="relative bg-gradient-to-br from-orange-50 to-green-50 py-20 pt-32">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 text-center lg:text-left">
@@ -23,11 +127,20 @@ const Index = () => {
                 найдите единомышленников и зарядитесь энергией для достижения целей.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg">
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg"
+                  onClick={() => scrollToSection('registration')}
+                >
                   <Icon name="Calendar" className="mr-2" />
                   Зарегистрироваться
                 </Button>
-                <Button variant="outline" size="lg" className="border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 text-lg">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 text-lg"
+                  onClick={() => scrollToSection('schedule')}
+                >
                   Программа
                 </Button>
               </div>
@@ -44,7 +157,7 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">О конференции</h2>
@@ -91,7 +204,7 @@ const Index = () => {
       </section>
 
       {/* Schedule Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="schedule" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Программа мероприятия</h2>
@@ -141,7 +254,7 @@ const Index = () => {
       </section>
 
       {/* Speakers Section */}
-      <section className="py-20 bg-white">
+      <section id="speakers" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Спикеры и эксперты</h2>
@@ -187,7 +300,7 @@ const Index = () => {
       </section>
 
       {/* Registration Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <section id="registration" className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
@@ -233,7 +346,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section id="contacts" className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
