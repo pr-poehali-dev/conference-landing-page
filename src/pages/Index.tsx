@@ -21,7 +21,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200">
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200 shadow-lg">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -113,7 +113,7 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="relative bg-gradient-to-br from-orange-50 to-green-50 py-20 pt-32">
+      <section id="hero" className="relative bg-gradient-to-br from-orange-50 via-white to-green-50 py-20 pt-32 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2 text-center lg:text-left">
@@ -129,7 +129,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button 
                   size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg"
+                  className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                   onClick={() => scrollToSection('registration')}
                 >
                   <Icon name="Calendar" className="mr-2" />
@@ -138,7 +138,7 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 text-lg"
+                  className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 text-lg rounded-2xl hover:scale-105 transition-all duration-300"
                   onClick={() => scrollToSection('schedule')}
                 >
                   Программа
@@ -146,11 +146,14 @@ const Index = () => {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <img 
-                src="/img/bbc8bb66-fbc6-4c60-881d-9d929e423586.jpg" 
-                alt="Конференция" 
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
+              <div className="relative">
+                <img 
+                  src="/img/bbc8bb66-fbc6-4c60-881d-9d929e423586.jpg" 
+                  alt="Конференция" 
+                  className="w-full h-auto rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-3xl"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -166,9 +169,9 @@ const Index = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center p-6 border-none shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="text-center p-8 border-none shadow-xl hover:shadow-2xl transition-all duration-300 rounded-3xl bg-gradient-to-br from-white to-gray-50 hover:scale-105">
               <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Icon name="Target" size={32} className="text-primary" />
                 </div>
                 <CardTitle className="text-xl font-semibold">Управление</CardTitle>
@@ -177,9 +180,9 @@ const Index = () => {
                 <p className="text-gray-600">Эффективные методы управления командами и проектами в современном мире</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 border-none shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="text-center p-8 border-none shadow-xl hover:shadow-2xl transition-all duration-300 rounded-3xl bg-gradient-to-br from-white to-gray-50 hover:scale-105">
               <CardHeader>
-                <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Icon name="Lightbulb" size={32} className="text-secondary" />
                 </div>
                 <CardTitle className="text-xl font-semibold">Вдохновение</CardTitle>
@@ -188,9 +191,9 @@ const Index = () => {
                 <p className="text-gray-600">Истории успеха и мотивирующие кейсы от лидеров различных индустрий</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 border-none shadow-lg hover:shadow-xl transition-shadow">
+            <Card className="text-center p-8 border-none shadow-xl hover:shadow-2xl transition-all duration-300 rounded-3xl bg-gradient-to-br from-white to-gray-50 hover:scale-105">
               <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <Icon name="Zap" size={32} className="text-primary" />
                 </div>
                 <CardTitle className="text-xl font-semibold">Мотивация</CardTitle>
@@ -212,36 +215,36 @@ const Index = () => {
           </div>
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
-              <Card className="p-6 hover:shadow-lg transition-shadow">
+              <Card className="p-8 hover:shadow-2xl transition-all duration-300 rounded-3xl border-0 bg-gradient-to-r from-white to-gray-50 hover:scale-105">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
-                  <Badge className="bg-primary text-white w-fit">09:00 - 10:30</Badge>
+                  <Badge className="bg-gradient-to-r from-primary to-primary/80 text-white w-fit px-4 py-2 rounded-2xl shadow-lg">09:00 - 10:30</Badge>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold mb-2">Регистрация и приветственный кофе</h3>
                     <p className="text-gray-600">Знакомство участников, networking</p>
                   </div>
                 </div>
               </Card>
-              <Card className="p-6 hover:shadow-lg transition-shadow">
+              <Card className="p-8 hover:shadow-2xl transition-all duration-300 rounded-3xl border-0 bg-gradient-to-r from-white to-gray-50 hover:scale-105">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
-                  <Badge className="bg-secondary text-white w-fit">10:30 - 12:00</Badge>
+                  <Badge className="bg-gradient-to-r from-secondary to-secondary/80 text-white w-fit px-4 py-2 rounded-2xl shadow-lg">10:30 - 12:00</Badge>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold mb-2">Основной доклад: "Лидерство в эпоху перемен"</h3>
                     <p className="text-gray-600">Как адаптировать стиль управления к современным вызовам</p>
                   </div>
                 </div>
               </Card>
-              <Card className="p-6 hover:shadow-lg transition-shadow">
+              <Card className="p-8 hover:shadow-2xl transition-all duration-300 rounded-3xl border-0 bg-gradient-to-r from-white to-gray-50 hover:scale-105">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
-                  <Badge className="bg-primary text-white w-fit">12:00 - 13:30</Badge>
+                  <Badge className="bg-gradient-to-r from-primary to-primary/80 text-white w-fit px-4 py-2 rounded-2xl shadow-lg">12:00 - 13:30</Badge>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold mb-2">Панельная дискуссия: "Мотивация команды"</h3>
                     <p className="text-gray-600">Обмен опытом между экспертами из разных сфер</p>
                   </div>
                 </div>
               </Card>
-              <Card className="p-6 hover:shadow-lg transition-shadow">
+              <Card className="p-8 hover:shadow-2xl transition-all duration-300 rounded-3xl border-0 bg-gradient-to-r from-white to-gray-50 hover:scale-105">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
-                  <Badge className="bg-secondary text-white w-fit">14:30 - 16:00</Badge>
+                  <Badge className="bg-gradient-to-r from-secondary to-secondary/80 text-white w-fit px-4 py-2 rounded-2xl shadow-lg">14:30 - 16:00</Badge>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold mb-2">Мастер-классы (на выбор)</h3>
                     <p className="text-gray-600">Практические сессии по управлению конфликтами и построению команды</p>
@@ -261,12 +264,12 @@ const Index = () => {
             <p className="text-xl text-gray-600">Ведущие практики и теоретики в области управления</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="text-center overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-square overflow-hidden">
+            <Card className="text-center overflow-hidden hover:shadow-2xl transition-all duration-300 rounded-3xl bg-gradient-to-br from-white to-gray-50 hover:scale-105 border-0">
+              <div className="aspect-square overflow-hidden rounded-t-3xl">
                 <img 
                   src="/img/13a08bb3-d1aa-4c14-98c3-08b8a33b8c0f.jpg" 
                   alt="Анна Петрова" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>
               <CardContent className="p-6">
@@ -275,7 +278,7 @@ const Index = () => {
                 <p className="text-gray-600 text-sm">15+ лет опыта в управлении IT-командами. Эксперт по agile-трансформации</p>
               </CardContent>
             </Card>
-            <Card className="text-center overflow-hidden hover:shadow-xl transition-shadow">
+            <Card className="text-center overflow-hidden hover:shadow-2xl transition-all duration-300 rounded-3xl bg-gradient-to-br from-white to-gray-50 hover:scale-105 border-0">
               <div className="aspect-square overflow-hidden bg-gray-100 flex items-center justify-center">
                 <Icon name="User" size={64} className="text-gray-400" />
               </div>
@@ -285,7 +288,7 @@ const Index = () => {
                 <p className="text-gray-600 text-sm">Специалист по мотивации персонала и развитию корпоративной культуры</p>
               </CardContent>
             </Card>
-            <Card className="text-center overflow-hidden hover:shadow-xl transition-shadow">
+            <Card className="text-center overflow-hidden hover:shadow-2xl transition-all duration-300 rounded-3xl bg-gradient-to-br from-white to-gray-50 hover:scale-105 border-0">
               <div className="aspect-square overflow-hidden bg-gray-100 flex items-center justify-center">
                 <Icon name="User" size={64} className="text-gray-400" />
               </div>
@@ -307,7 +310,7 @@ const Index = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-6">Регистрация участников</h2>
               <p className="text-xl text-gray-600">Количество мест ограничено. Зарегистрируйтесь сейчас!</p>
             </div>
-            <Card className="p-8 shadow-xl">
+            <Card className="p-10 shadow-2xl rounded-3xl border-0 bg-gradient-to-br from-white via-gray-50 to-white">
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -335,7 +338,7 @@ const Index = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Ожидания от конференции</label>
                   <Textarea placeholder="Что вы хотите получить от участия?" className="w-full" rows={4} />
                 </div>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white py-4 text-lg">
+                <Button className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white py-4 text-lg rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <Icon name="Send" className="mr-2" />
                   Зарегистрироваться
                 </Button>

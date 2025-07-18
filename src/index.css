@@ -34,7 +34,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,5 +100,17 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Montserrat", sans-serif;
+  }
+
+  .shadow-3xl {
+    box-shadow:
+      0 35px 60px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .hover\:shadow-3xl:hover {
+    box-shadow:
+      0 35px 60px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
   }
 }
